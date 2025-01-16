@@ -14,9 +14,7 @@
 
 ## Regras do Form
 
-### Id's únicos por clientes
-
-### Feedback de requisição
+### Feedback de requisição(API & Front)
 
 ### CPF Único\*
 

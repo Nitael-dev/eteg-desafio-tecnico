@@ -32,4 +32,3 @@ Agora falando diretamente, adotei uma método de desenvolvimento mais criativo p
 Na parte da API/Back-end, preferi um uso clássico do [Node.JS](https://nodejs.org/en) partindo pro [Express](https://expressjs.com/pt-br/) tendo em vista a simplicidade das regras do negócio e a segurança opcional para a solução, maximizando a fluidez no desenvolvimento. Também ajudou bastante na integração da imagem única do Docker, que acelerou grandemente o progresso no desafio.
 
 Espero muito fazer parte do time da E-teg, e já adianto estar muito grato pela oportunidade de crescimento.
-

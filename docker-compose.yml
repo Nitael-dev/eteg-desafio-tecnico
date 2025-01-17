@@ -1,0 +1,54 @@
+services:
+  db:
+    image: postgres
+    container_name: eteg
+
+    environment:
+      POSTGRES_PASSWORD: eteg
+      POSTGRES_USER: eteg
+    networks:
+      - eteg
+
+    ports:
+      - 5432:5432
+    command: ["postgres", "-c", "listen_addresses=*"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U eteg -d eteg"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api_node:
+    container_name: eteg_api_node
+
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: eteg
+    build:
+      context: api_node
+      dockerfile: ./DockerFile
+    ports:
+      - 5000:5000
+    networks:
+      - eteg
+
+  front_react:
+    container_name: eteg_front_react
+
+    networks:
+      - eteg
+
+    depends_on:
+      - api_node
+
+    build:
+      context: front_react
+      dockerfile: ./DockerFile
+    ports:
+      - 5173:5173
+
+networks:
+  eteg:
+    driver: bridge

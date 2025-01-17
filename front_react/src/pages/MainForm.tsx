@@ -14,13 +14,14 @@ import { clearDocument } from "../utils/clearDocument";
 import { isCPFValid } from "../utils/isCPFValid";
 import { useReducer, useState } from "react";
 import { Textarea } from "@/components/ui/textarea";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { ToggleGroup } from "@/components/ui/toggle-group";
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { api } from "../utils/axiosConfig";
 import { Progress } from "@/components/ui/progress";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
+import { TooltipColor } from "@/components/TooltipColor";
 
 const CPFRegex = /^\d{11}$/;
 
@@ -83,8 +84,7 @@ function MainForm() {
     resolver: zodResolver(baseSchema),
   });
 
-  // eslint-disable-next-line
-  const [cpf, setCpf] = useReducer((_: any, next: string) => {
+  const [cpf, setCpf] = useReducer((_: unknown, next: string) => {
     return formatCPF(next);
   }, formatCPF(""));
   const [isLoading, setIsLoading] = useState(false);
@@ -127,6 +127,8 @@ function MainForm() {
         setIsLoading(false);
         navTo(`/view/${id}`);
       }, 1500);
+
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch ({ response: { data }, status }: any) {
       if (status === 409) {
         toast({
@@ -254,38 +256,45 @@ function MainForm() {
                 </FormLabel>
                 <FormControl>
                   <ToggleGroup {...field} type="single" variant="outline">
-                    <ToggleGroupItem
+                    <TooltipColor
                       value="0"
+                      selected={field.value === "0"}
                       onClick={() => field.onChange("0")}
                       className="size-10 rounded-full bg-red-600 hover:bg-red-500 hover:border-none"
                     />
-                    <ToggleGroupItem
+                    <TooltipColor
                       value="1"
+                      selected={field.value === "1"}
                       onClick={() => field.onChange("1")}
                       className="size-10 rounded-full bg-orange-600 hover:bg-orange-500 hover:border-none"
                     />
-                    <ToggleGroupItem
+                    <TooltipColor
                       value="2"
+                      selected={field.value === "2"}
                       onClick={() => field.onChange("2")}
                       className="size-10 rounded-full bg-yellow-600 hover:bg-yellow-500 hover:border-none"
                     />
-                    <ToggleGroupItem
+                    <TooltipColor
                       value="3"
+                      selected={field.value === "3"}
                       onClick={() => field.onChange("3")}
                       className="size-10 rounded-full bg-green-600 hover:bg-green-500 hover:border-none"
                     />
-                    <ToggleGroupItem
+                    <TooltipColor
                       value="4"
+                      selected={field.value === "4"}
                       onClick={() => field.onChange("4")}
                       className="size-10 rounded-full bg-blue-600 hover:bg-blue-500 hover:border-none"
                     />
-                    <ToggleGroupItem
+                    <TooltipColor
                       value="5"
+                      selected={field.value === "5"}
                       onClick={() => field.onChange("5")}
                       className="size-10 rounded-full bg-indigo-600 hover:bg-indigo-500 hover:border-none"
                     />
-                    <ToggleGroupItem
+                    <TooltipColor
                       value="6"
+                      selected={field.value === "6"}
                       onClick={() => field.onChange("6")}
                       className="size-10 rounded-full bg-violet-600 hover:bg-violet-500 hover:border-none"
                     />

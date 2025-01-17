@@ -18,14 +18,14 @@ class CreateRegisterController {
       observation,
     }: CreateRegisterControllerProps = request.body;
 
-    const authenticateUserService = new RegisterService();
+    const registerService = new RegisterService();
 
-    const findedCpf = await authenticateUserService.findOne(cpf);
-    const findedEmail = await authenticateUserService.findOne(email);
+    const findedCpf = await registerService.findOne(cpf);
+    const findedEmail = await registerService.findOne(email);
 
     if (!!findedCpf?.id && !!findedEmail?.id) {
       if (findedCpf.cpf === cpf && findedCpf.email === email) {
-        const result = await authenticateUserService.updateOne({
+        const result = await registerService.updateOne({
           full_name,
           cpf,
           email,
@@ -58,7 +58,7 @@ class CreateRegisterController {
       });
     }
 
-    const result = await authenticateUserService.create({
+    const result = await registerService.create({
       full_name,
       cpf,
       email,

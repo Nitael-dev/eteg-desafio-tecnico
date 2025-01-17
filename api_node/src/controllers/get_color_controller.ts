@@ -4,8 +4,8 @@ class GetColorController {
   async handle(request: any, response: any) {
     const { color }: { color: string } = request.params;
 
-    const authenticateUserService = new RegisterService();
-    const result = await authenticateUserService.findAllColor(color);
+    const colorService = new RegisterService();
+    const result = await colorService.findAllColor(color);
 
     return response.json(result);
   }

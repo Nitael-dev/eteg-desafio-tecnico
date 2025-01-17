@@ -53,7 +53,7 @@ function FormView() {
               data.full_name.split(" ")[0]
             }!`,
             style: {
-              backgroundColor: appColors[Number(data.color)] + "DD",
+              backgroundColor: appColors[Number(data.color)]?.hex + "DD",
             },
           }),
         800
@@ -62,12 +62,14 @@ function FormView() {
     } catch (error) {
       console.log(error);
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function getColor() {
     try {
       const { data } = await api.get<number>(`/color/${register.color}`);
-      setColorTotal(data);
+      setColorTotal(typeof data === "number" ? data - 1 : 0);
       setTimeout(() => setIsLoading(false), 1000);
     } catch (error) {
       console.log(error);
@@ -81,6 +83,8 @@ function FormView() {
     if (colorTotal === false && register.color !== "-1") {
       getColor();
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [register]);
 
   return (
@@ -96,7 +100,9 @@ function FormView() {
       >
         Voltar ao cadastro
       </Button>
-      {isLoading && !register.id ? (
+      {registerId.id?.length !== 36 ? (
+        <h1>Não encontramos seu registro em nosso banco de registros {":("}</h1>
+      ) : isLoading && !register.id ? (
         <div className="flex mx-auto mb-2 spinner xl w-">
           <svg viewBox="0 0 100 100">
             <circle cx="50" cy="50" r="20" />
@@ -109,7 +115,7 @@ function FormView() {
           </h1>
           <div
             style={{
-              backgroundColor: appColors[Number(register.color)] + "DD",
+              backgroundColor: appColors[Number(register.color)]?.hex + "DD",
             }}
             className="flex w-3/5 px-8 py-8 rounded-xl flex-col items-center"
           >
@@ -135,7 +141,7 @@ function FormView() {
           ) : (
             <h2 className="text-2xl text-stone-600">
               Mais{" "}
-              <strong style={{ color: appColors[Number(register.color)] }}>
+              <strong style={{ color: appColors[Number(register.color)]?.hex }}>
                 {colorTotal}
               </strong>{" "}
               {colorTotal === 1 ? "pessoa adora" : "pessoas adoram"} a mesma cor

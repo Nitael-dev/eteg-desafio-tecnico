@@ -9,6 +9,7 @@
 
 /front_react/node_modules
 /front_react/dist
+/front_react/.env
 /front_react/dist-ssr
 /front_react/*.local
 

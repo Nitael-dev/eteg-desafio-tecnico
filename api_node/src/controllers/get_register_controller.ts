@@ -4,9 +4,9 @@ class GetRegisterController {
   async handle(request: any, response: any) {
     const { id }: { id: string } = request.params;
 
-    const authenticateUserService = new RegisterService();
+    const getRegisterService = new RegisterService();
 
-    const result = await authenticateUserService.findOne(id);
+    const result = await getRegisterService.findOne(id);
 
     return response.json(result);
   }

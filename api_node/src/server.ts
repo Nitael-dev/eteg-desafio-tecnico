@@ -22,7 +22,7 @@ async function init() {
   await runDbMigrations();
 
   app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+    console.log(`Servidor rodando na porta ${port}!!!`);
   });
 }
 

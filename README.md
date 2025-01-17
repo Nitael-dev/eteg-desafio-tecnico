@@ -7,6 +7,9 @@
 - [Postgres](https://www.postgresql.org/)
 - [Docker](https://www.docker.com/)
 
+## Requisitos
+- [Docker](https://www.docker.com/) deve estar instalado!!!
+
 ## Iniciando a aplicação
 ### Realize o clone do repositório e acesse o diretório
 

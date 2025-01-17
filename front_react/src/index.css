@@ -34,6 +34,12 @@ body {
   min-height: 100vh;
 }
 
+#root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -133,5 +139,76 @@ button:focus-visible {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+.spinner.lg {
+  width: 64px;
+  height: 64px;
+}
+
+.spinner.xl {
+  width: 128px;
+  height: 128px;
+}
+
+.spinner svg {
+  animation: rotate 1.5s linear infinite;
+}
+
+.spinner circle {
+  animation: color 2s ease-in-out infinite, dash 1.5s ease-in-out infinite;
+  fill: none;
+  stroke: black;
+  stroke-width: 3;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes color {
+  100%,
+  0% {
+    stroke: #dc2626;
+  }
+  14.2857% {
+    stroke: #ea580c;
+  }
+  28.5714% {
+    stroke: #ca8a04;
+  }
+  42.8571% {
+    stroke: #16a34a;
+  }
+  57.1429% {
+    stroke: #2563eb;
+  }
+  71.4286% {
+    stroke: #4f46e5;
+  }
+  85.7143% {
+    stroke: #7c3aed;
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124;
   }
 }

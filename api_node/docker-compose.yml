@@ -1,6 +1,7 @@
 services:
   db:
     image: postgres
+    container_name: eteg
 
     environment:
       POSTGRES_PASSWORD: eteg

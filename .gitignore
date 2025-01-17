@@ -1,0 +1,28 @@
+# FRONT IGNORE
+/front_react/logs
+/front_react/*.log
+/front_react/npm-debug.log*
+/front_react/yarn-debug.log*
+/front_react/yarn-error.log*
+/front_react/pnpm-debug.log*
+/front_react/lerna-debug.log*
+
+/front_react/node_modules
+/front_react/dist
+/front_react/dist-ssr
+/front_react/*.local
+
+/front_react/.vscode/*
+/front_react/!.vscode/extensions.json
+/front_react/.idea
+/front_react/.DS_Store
+/front_react/*.suo
+/front_react/*.ntvs*
+/front_react/*.njsproj
+/front_react/*.sln
+/front_react/*.sw?
+
+# API IGNORE
+
+/api_node/node_modules
+/api_node/.env

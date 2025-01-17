@@ -20,6 +20,8 @@
 
 ### E-mail Único\*
 
+### E-mail e CPF iguais permite update
+
 ## Stacks
 
 ### React.JS (Typescript)

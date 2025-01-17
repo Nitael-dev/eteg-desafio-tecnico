@@ -18,7 +18,7 @@ const createRegisterTable = `
     END;
     $$ LANGUAGE plpgsql;
 
-    CREATE TRIGGER set_timestamp
+    CREATE OR REPLACE TRIGGER set_timestamp
     BEFORE UPDATE ON register
     FOR EACH ROW
     EXECUTE PROCEDURE trigger_set_timestamp();

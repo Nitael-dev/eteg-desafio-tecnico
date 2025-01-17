@@ -11,7 +11,7 @@
 - [Docker](https://www.docker.com/) deve estar instalado!!!
 
 ## Iniciando a aplicação
-### Realize o clone do repositório e acesse o diretório
+### Realize o clone ou baixe o ZIP do repositório, em seguida acesse o diretório
 
 ```bash
   $ git clone https://github.com/Nitael-dev/eteg-desafio-tecnico.git

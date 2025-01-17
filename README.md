@@ -15,17 +15,39 @@
   $ cd eteg-desafio-tecnico
 ```
 
-### Rode a imagem Docker da aplicação e faça seu cadastro!
+### Crie os arquivos que irão conter as variáveis de ambiente
+```bash
+  $ touch ./front_react/.env ./api_node/.env
+```
+### Estas são as variáveis de desenvolvimento 🤫
+
+#### ADICIONAR EM >> api_node/.env <<
+```bash
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=eteg
+DB_PASSWORD=eteg
+DB_NAME=eteg
+
+PORT=5000
+```
+#### ADICIONAR EM >> front_react/.env <<
+```bash
+VITE_API_URL=http://localhost:5000
+```
+
+### Rode a imagem Docker da aplicação
 ```bash
   $ docker compose up
 ```
-### Acesse a aplicação em qualquer Navegador
+
+### Acesse a aplicação e faça seu cadastro 🌈 em qualquer Navegador
 ```bash
   http://localhost:5173/
 ```
-### Considerações de finalização e pontos-chave do projeto a ser apresentado
+## Pontos-chave do projeto e considerações sobre o desafio
 
-A solução foi realizada de acordo com o documento proposto, indo um pouco além a fins de escalabidade e potencial, já que será utilizada futuramente. As regras de negócio são simples: CPF's e E-mail's são únicos no banco de registro, caso seja encontrado um registro idêntico ( mesmo CPF e mesmo E-mail no formulário) o mesmo será atualizado, podendo ter: Nome Completo, Cor Favorita e Observações alteradas.
+A solução foi realizada de acordo com o documento proposto, com alguns extras para fins de escalabidade e potencial, já que será utilizada futuramente. As regras de negócio são simples: CPF's e E-mail's são únicos no banco de registro, caso seja encontrado um registro idêntico ( mesmo CPF e mesmo E-mail no formulário) o mesmo será atualizado, podendo ter: Nome Completo, Cor Favorita e Observações alteradas.
 
 Agora falando diretamente, adotei uma método de desenvolvimento mais criativo para o desafio proposto pela E-teg, tentando sempre ir além sem fugir muito do serne da proposta. Usei algumas Bibliotecas que oferecem produtividade excepcional ao simplificar o uso e criação de componentes chamada [ShadCN](https://ui.shadcn.com/docs) para a criação de componentes otimizados, recicláveis e acessíveis no Front-End.
 
